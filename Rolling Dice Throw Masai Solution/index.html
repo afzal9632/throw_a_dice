@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rolling dice</title>
+    <style>
+      #winner {
+        width: 70%;
+        margin: auto;
+        text-align: center;
+      }
+      body {
+        margin: auto;
+        text-align: center;
+      }
+      #box {
+        display: flex;
+        gap: 50px;
+        justify-content: center;
+      }
+      #dicebox {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+      #member-1 {
+        height: 150px;
+        width: 150px;
+        border: 1px solid black;
+        font-size: 50px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+      #member-2 {
+        height: 150px;
+        width: 150px;
+        border: 1px solid black;
+        font-size: 50px;
+      }
+      #member-3 {
+        height: 150px;
+        width: 150px;
+        border: 1px solid black;
+        font-size: 50px;
+      }
+      #roll {
+        border-radius: 10px;
+        height: 30px;
+        margin: 20px;
+        background-color: teal;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="winner"></div>
+    <div id="box">
+      <h2>Member A</h2>
+      <h2>Member B</h2>
+      <h2>Member C</h2>
+    </div>
+    <div id="dicebox">
+      <div id="member-1"></div>
+      <div id="member-2"></div>
+      <div id="member-3"></div>
+    </div>
+    <button id="roll" onclick="playgame()">ROLL THE DICE</button>
+  </body>
+</html>
+<script>
+  function playgame() {
+    console.log("Avinash");
+    document.querySelector("#winner").innerText = "";
+    div1 = document.querySelector("#member-1").innerText = Math.ceil(
+      Math.random() * 6
+    );
+    div2 = document.querySelector("#member-2").innerText = Math.ceil(
+      Math.random() * 6
+    );
+    div3 = document.querySelector("#member-3").innerText = Math.ceil(
+      Math.random() * 6
+    );
+    max = Math.max(div1, div2, div3);
+    min = Math.min(div1, div2, div3);
+    if (
+      (div1 == max && div2 == max) ||
+      (div1 == max && div3 == max) ||
+      (div2 == max && div3 == max)
+    ) {
+      document.querySelector("#winner").innerText = "Draw";
+      document.querySelector("#member-1").style.backgroundColor = "blue";
+      document.querySelector("#member-2").style.backgroundColor = "blue";
+      document.querySelector("#member-3").style.backgroundColor = "blue";
+      document.querySelector("#member-1").style.color = "white";
+      document.querySelector("#member-2").style.color = "white";
+      document.querySelector("#member-3").style.color = "white";
+      if (div1 == min) {
+        document.querySelector("#member-1").style.backgroundColor = "red";
+      } else if (div2 == min) {
+        document.querySelector("#member-2").style.backgroundColor = "red";
+      } else if (div3 == min) {
+        document.querySelector("#member-3").style.backgroundColor = "red";
+      }
+    } else if ((div1 == max && div2 == min) || (div1 == max && div3 == min)) {
+      document.querySelector("#winner").innerText = "Winner Green";
+      document.querySelector("#member-1").style.backgroundColor = "green";
+      document.querySelector("#member-1").style.color = "white";
+
+      if (div2 == div3) {
+        document.querySelector("#member-2").style.backgroundColor = "blue";
+        document.querySelector("#member-3").style.backgroundColor = "blue";
+        document.querySelector("#member-3").style.color = "white";
+        document.querySelector("#member-2").style.color = "white";
+      } else if (div2 == min) {
+        document.querySelector("#member-2").style.backgroundColor = "red";
+        document.querySelector("#member-3").style.backgroundColor = "yellow";
+        document.querySelector("#member-2").style.color = "white";
+      } else if (div3 == min) {
+        document.querySelector("#member-3").style.backgroundColor = "red";
+        document.querySelector("#member-2").style.backgroundColor = "yellow";
+        document.querySelector("#member-3").style.color = "white";
+      } else {
+      }
+    } else if ((div2 == max && div1 == min) || (div2 == max && div3 == min)) {
+      document.querySelector("#winner").innerText = "Winner Green";
+      document.querySelector("#member-2").style.backgroundColor = "green";
+      document.querySelector("#member-2").style.color = "white";
+      if (div1 == div3) {
+        document.querySelector("#member-1").style.backgroundColor = "blue";
+        document.querySelector("#member-3").style.backgroundColor = "blue";
+        document.querySelector("#member-1").style.color = "white";
+        document.querySelector("#member-3").style.color = "white";
+      } else if (div1 == min) {
+        document.querySelector("#member-1").style.backgroundColor = "red";
+        document.querySelector("#member-3").style.backgroundColor = "yellow";
+        document.querySelector("#member-1").style.color = "white";
+      } else if (div3 == min) {
+        document.querySelector("#member-3").style.backgroundColor = "red";
+        document.querySelector("#member-1").style.backgroundColor = "yellow";
+        document.querySelector("#member-3").style.color = "white";
+      }
+    } else if ((div3 == max && div1 == min) || (div3 == max && div2 == min)) {
+      document.querySelector("#winner").innerText = "Winner Green";
+      document.querySelector("#member-3").style.backgroundColor = "green";
+      document.querySelector("#member-3").style.color = "white";
+      if (div1 == div2) {
+        document.querySelector("#member-1").style.backgroundColor = "blue";
+        document.querySelector("#member-2").style.backgroundColor = "blue";
+        document.querySelector("#member-1").style.color = "white";
+        document.querySelector("#member-2").style.color = "white";
+      } else if (div1 == min) {
+        document.querySelector("#member-1").style.backgroundColor = "red";
+        document.querySelector("#member-2").style.backgroundColor = "yellow";
+        document.querySelector("#member-1").style.color = "white";
+      } else if (div2 == min) {
+        document.querySelector("#member-2").style.backgroundColor = "red";
+        document.querySelector("#member-1").style.backgroundColor = "yellow";
+        document.querySelector("#member-2").style.color = "white";
+      }
+    }
+  }
+</script>

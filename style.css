@@ -1,0 +1,44 @@
+body{
+    background: linear-gradient(to right, #3f5efb, #fc466b);
+}
+
+#winner{
+    width: 65%;
+    margin: auto;
+    text-align: center;
+}
+
+h1{
+    margin: 20px;
+    font-size: 6rem;
+    color: rgb(208, 214,218);
+}
+
+.margin1 .margin2 .margin3 {
+    margin: 0px 50px;
+    text-align: center;
+    display: inline-block;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+p{
+    font-size: 2.5rem;
+    color: rgb(208, 214,218);
+}
+
+img{
+    width: 310px;
+}
+
+button{
+    width: 310px;
+    height: 100px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+    margin: 100px;
+    padding:auto;
+}
